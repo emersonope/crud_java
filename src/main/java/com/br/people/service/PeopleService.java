@@ -1,5 +1,6 @@
 package com.br.people.service;
 
+import com.br.people.exeption.PeopleAlreadyExistsException;
 import com.br.people.exeption.PeopleNotFoundException;
 import com.br.people.model.PeopleModel;
 import com.br.people.repository.PeopleRepository;
@@ -13,6 +14,9 @@ public class PeopleService {
     private PeopleRepository peopleRepository;
 
     public PeopleModel create(PeopleModel peopleModel) {
+        if (peopleRepository.existsById(peopleModel.getCpf())) {
+            throw new PeopleAlreadyExistsException("Pessoa com CPF " + peopleModel.getCpf() + " já existe.");
+        }
         return peopleRepository.save(peopleModel);
     }
 

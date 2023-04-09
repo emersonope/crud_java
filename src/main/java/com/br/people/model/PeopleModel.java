@@ -25,6 +25,7 @@ public class PeopleModel {
     private String nome;
 
     @NotNull
+    @NotBlank
     private String telefone;
 
     public PeopleModel (String cpf, String nome, String telefone) {
