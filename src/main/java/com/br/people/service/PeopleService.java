@@ -26,14 +26,15 @@ public class PeopleService {
     }
 
     public PeopleModel update(String cpf, PeopleModel peopleModel) {
-        PeopleModel existingCustomer = findByCpf(cpf);
-        existingCustomer.setNome(peopleModel.getNome());
-        existingCustomer.setTelefone(peopleModel.getTelefone());
-        return peopleRepository.save(existingCustomer);
+        PeopleModel existingPeopleModel = findByCpf(cpf);
+
+        existingPeopleModel.setName(peopleModel.getName());
+        existingPeopleModel.setTelefone(peopleModel.getTelefone());
+        return peopleRepository.save(existingPeopleModel);
     }
 
     public void deleteByCpf(String cpf) {
-        PeopleModel existingCustomer = findByCpf(cpf);
-        peopleRepository.delete(existingCustomer);
+        PeopleModel existingPeopleModel = findByCpf(cpf);
+        peopleRepository.delete(existingPeopleModel);
     }
 }

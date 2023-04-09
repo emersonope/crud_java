@@ -45,10 +45,10 @@ public class PeopleServiceTest {
         // Then
         Assertions.assertAll(
                 () -> assertNotNull(result.getCpf()),
-                () -> assertNotNull(result.getNome()),
+                () -> assertNotNull(result.getName()),
                 () -> assertNotNull(result.getTelefone()),
                 () -> assertEquals(people.getCpf(), result.getCpf()),
-                () -> assertEquals(people.getNome(), result.getNome()),
+                () -> assertEquals(people.getName(), result.getName()),
                 () -> assertEquals(people.getTelefone(), result.getTelefone())
         );
 
@@ -119,7 +119,7 @@ public class PeopleServiceTest {
         PeopleModel updatedPeople = peopleService.update(cpf, peopleModel);
 
         // Verificações
-        assertEquals(novoNome, updatedPeople.getNome());
+        assertEquals(novoNome, updatedPeople.getName());
         assertEquals(novoTelefone, updatedPeople.getTelefone());
         Mockito.verify(peopleRepository, Mockito.times(1)).findById(cpf);
         Mockito.verify(peopleRepository, Mockito.times(1)).save(existingPeople);
