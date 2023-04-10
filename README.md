@@ -30,6 +30,6 @@ Você pode acessar as informações do Actuator na seguinte URL: http://localhos
 
 Algumas das informações disponíveis são:
 
-`/actuator/health`: verifica o estado da aplicação;
-`/actuator/info`: informações da aplicação;
-`/actuator/metrics`: informações de métricas da aplicação;
+* **`/actuator/health`**: verifica o estado da aplicação;
+* **`/actuator/info`**: informações da aplicação;
+* **`/actuator/metrics`**: informações de métricas da aplicação;
