@@ -31,5 +31,5 @@ Você pode acessar as informações do Actuator na seguinte URL: http://localhos
 Algumas das informações disponíveis são:
 
 * **`/actuator/health`**: verifica o estado da aplicação;
-* **`/actuator/info`**: informações da aplicação;
+* **`/actuator/prometheus`**: informações da métricas do projeto com Prometheus utilizando o micrometer;
 * **`/actuator/metrics`**: informações de métricas da aplicação;
