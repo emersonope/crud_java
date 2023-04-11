@@ -50,7 +50,7 @@ Algumas das informações disponíveis são:
 
 URL: http://localhost:9090/
 
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 ### Logs da aplicação
 
@@ -58,12 +58,12 @@ Os logs foram exportados para a Loggly usando o log4j:
 
 imagem 1:
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 imagem 2:
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 Localmente tabem é possivel ver os logs em tempo de execução:
 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
