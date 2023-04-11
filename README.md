@@ -7,15 +7,27 @@ Para executar a aplicação, você precisa ter o JDK 11 ou superior e o Maven in
 ```
 mvn spring-boot:run
 ```
+Caso tenha problemas em baixar alguma dependencia tente executar os seguintes comandos:
 
-A aplicação estará disponível em http://localhost:8080.
+```
+mvn dependency:purge-local-repository
+```
+e
 
-### Como compilar a aplicação
-Para compilar a aplicação, navegue até a raiz do projeto e execute o seguinte comando:
+```
+mvn clean install
+```
+
+e 
 
 ```
 mvn clean package
 ```
+
+A aplicação estará disponível em http://localhost:8080.
+
+### Como compilar a aplicação
+
 Esse comando irá gerar um arquivo jar na pasta target.
 
 ### Como executar os testes
@@ -33,3 +45,19 @@ Algumas das informações disponíveis são:
 * **`/actuator/health`**: verifica o estado da aplicação;
 * **`/actuator/prometheus`**: informações da métricas do projeto com Prometheus utilizando o micrometer;
 * **`/actuator/metrics`**: informações de métricas da aplicação;
+
+### Logs da aplicação
+
+Os logs foram exportados para a Loggly usando o log4j:
+
+imagem 1:
+
+![img.png](img.png)
+
+imagem 2:
+
+![img_1.png](img_1.png)
+
+Localmente tabem é possivel ver os logs em tempo de execução:
+
+![img_2.png](img_2.png)

@@ -1,0 +1,14 @@
+<Configuration>
+    <Appenders>
+        <Http name="Loggly" url="https://logs-01.loggly.com/inputs/7ed3e0db-4d8d-4807-a53a-a3f4a693a752/tag/java">
+            <PatternLayout>
+                <pattern>${hostName} %d{yyyy-MM-dd HH:mm:ss,SSS}{GMT} %p %t %c.%M - %m%n</pattern>
+            </PatternLayout>
+        </Http>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Loggly" />
+        </Root>
+    </Loggers>
+</Configuration>
