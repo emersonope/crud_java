@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/people")
@@ -16,31 +17,37 @@ public class PeopleController {
     private PeopleService peopleService;
     private final static Logger logger = LogManager.getLogger();
 
-    @Timed(value = "people.create", description = "Tempo de resposta do endpoint de criação de pessoas")
+    @GetMapping("/getAll")
+    public List<PeopleModel> list() {
+        logger.info("Listing all clients!");
+        return peopleService.listAll();
+    }
+
+    @Timed(value = "people.create", description = "Client creation endpoint response time")
     @PostMapping
     public PeopleModel create(@RequestBody PeopleModel peopleModel) {
-        logger.info("Criando pessoa: {}", peopleModel);
+        logger.info("Creating client with CPF: {}", peopleModel.getCpf());
         return peopleService.create(peopleModel);
     }
 
-    @Timed(value = "people.findByCpf", description = "Tempo de resposta do endpoint de busca de pessoas por CPF")
+    @Timed(value = "people.findByCpf", description = "Response time of the client search endpoint by CPF")
     @GetMapping("/{cpf}")
     public PeopleModel findByCpf(@PathVariable String cpf) {
-        logger.info("Buscando pessoa por CPF: {}", cpf);
+        logger.info("Searching for CPF: {}", cpf);
         return peopleService.findByCpf(cpf);
     }
 
-    @Timed(value = "people.update", description = "Tempo de resposta do endpoint de atualização de pessoas")
+    @Timed(value = "people.update", description = "Client update endpoint response time")
     @PutMapping("/{cpf}")
     public PeopleModel update(@PathVariable String cpf, @RequestBody PeopleModel peopleModel) {
-        logger.info("Atualizando pessoa com CPF {}: {}", cpf, peopleModel);
+        logger.info("Updating by CPF {}: {}", cpf);
         return peopleService.update(cpf, peopleModel);
     }
 
-    @Timed(value = "people.deleteByCpf", description = "Tempo de resposta do endpoint de exclusão de pessoas por CPF")
+    @Timed(value = "people.deleteByCpf", description = "Client deletion endpoint response time per CPF")
     @DeleteMapping("/{cpf}")
     public void deleteByCpf(@PathVariable String cpf) {
-        logger.info("Excluindo pessoa com CPF: {}", cpf);
+        logger.info("Deleting by CPF: {}", cpf);
         peopleService.deleteByCpf(cpf);
     }
 }

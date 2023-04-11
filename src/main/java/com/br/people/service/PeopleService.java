@@ -7,22 +7,26 @@ import com.br.people.repository.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 @Service
 public class PeopleService {
 
     @Autowired
     private PeopleRepository peopleRepository;
 
+    public List<PeopleModel> listAll() {
+        return peopleRepository.findAll();
+    }
     public PeopleModel create(PeopleModel peopleModel) {
         if (peopleRepository.existsById(peopleModel.getCpf())) {
-            throw new PeopleAlreadyExistsException("Pessoa com CPF " + peopleModel.getCpf() + " já existe.");
+            throw new PeopleAlreadyExistsException("Client with CPF " + peopleModel.getCpf() + " Already exist.");
         }
         return peopleRepository.save(peopleModel);
     }
 
     public PeopleModel findByCpf(String cpf) {
         return peopleRepository.findById(cpf)
-                .orElseThrow(() -> new PeopleNotFoundException("Customer not found with CPF: " + cpf));
+                .orElseThrow(() -> new PeopleNotFoundException("Client not found with CPF: " + cpf));
     }
 
     public PeopleModel update(String cpf, PeopleModel peopleModel) {

@@ -46,6 +46,12 @@ Algumas das informações disponíveis são:
 * **`/actuator/prometheus`**: informações da métricas do projeto com Prometheus utilizando o micrometer;
 * **`/actuator/metrics`**: informações de métricas da aplicação;
 
+### Metricas do projeto no formato Prometheus utilizando o micrometer
+
+URL: http://localhost:9090/
+
+![img_3.png](img_3.png)
+
 ### Logs da aplicação
 
 Os logs foram exportados para a Loggly usando o log4j:
