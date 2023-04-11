@@ -121,16 +121,16 @@
 
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>central</id>
-			<url>https://mvnrepository.com/artifact/</url>
-		</repository>
-		<repository>
-			<id>mvnrepo</id>
-			<url>https://mvnrepository.com/</url>
-		</repository>
-	</repositories>
+<!--	<repositories>-->
+<!--		<repository>-->
+<!--			<id>central</id>-->
+<!--			<url>https://mvnrepository.com/artifact/</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>mvnrepo</id>-->
+<!--			<url>https://mvnrepository.com/</url>-->
+<!--		</repository>-->
+<!--	</repositories>-->
 
 	<build>
 		<plugins>
