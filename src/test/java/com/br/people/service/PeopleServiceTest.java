@@ -69,7 +69,7 @@ public class PeopleServiceTest {
 
         // then
         verify(peopleRepository, times(0)).save(existingPeople);
-        assertEquals("Pessoa com CPF 54909688005 já existe.", exception.getMessage());
+        assertEquals("Client with CPF 54909688005 Already exist.", exception.getMessage());
     }
 
     @Test
@@ -150,7 +150,7 @@ public class PeopleServiceTest {
 
         // then
         PeopleNotFoundException exception = assertThrows(PeopleNotFoundException.class, executable);
-        assertEquals("Customer not found with CPF: " + cpf, exception.getMessage());
+        assertEquals("Client not found with CPF: " + cpf, exception.getMessage());
         Mockito.verify(peopleRepository, Mockito.never()).delete(Mockito.any());
     }
 
