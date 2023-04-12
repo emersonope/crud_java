@@ -28,16 +28,34 @@ URL do Prometheus: http://localhost:9090 <BR>
 
 ### EndPoints:
 
-| Método | Rota           | Requisição                      |
-|--------|----------------|---------------------------------|
-| DELETE | /people/{CPF}  | Deleta uma pessoa por ID/CPF    |
-| GET    | /people/{CPF}  | Busca por ID/CPF                |
-| POST   | /people        | Busca todos os cadastrado na DB |
-| PUT    | /people/{CPF}  | Atualiza um clinete no DB       |
+| Método | Rota           | Requisição                       |
+|--------|----------------|----------------------------------|
+| DELETE | /people/{CPF}  | Deleta uma pessoa por ID/CPF     |
+| GET    | /people/{CPF}  | Busca por ID/CPF                 |
+| POST   | /people        | Busca todos os cadastrados no DB |
+| PUT    | /people/{CPF}  | Atualiza um cliente no DB        |
 
 
 # A pipeline de build está sendo realizada pelo Github Actions.
 
+### Conectar ao banco de dados H2 
+
+Acesse o enderço abaixo no navegador:
+
+http://localhost:8080/h2 <BR>
+
+Driver Class:
+```
+org.h2.Driver
+```
+JDBC URL:
+```
+jdbc:h2:mem:people
+```
+User Name:
+```
+sa
+```
 ### Como executar a aplicação sem docker
 Para executar a aplicação, você precisa ter o JDK 11 ou superior e o Maven instalados. Depois de clonar o repositório, navegue até a raiz do projeto e execute o seguinte comando:
 
